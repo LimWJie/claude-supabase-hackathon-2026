@@ -1,0 +1,22 @@
+{
+  "name": "claude-supabase-hackathon",
+  "private": true,
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "db:migration": "supabase migration new",
+    "db:types": "supabase gen types typescript --linked > packages/shared/src/database.types.ts",
+    "db:login": "supabase login",
+    "db:link": "supabase link",
+    "db:push": "supabase db push"
+  },
+  "devDependencies": {
+    "supabase": "^2.122.0"
+  }
+}
