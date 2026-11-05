@@ -15,9 +15,9 @@ export async function ensureSession() {
 }
 
 /** Runs an RPC after ensuring a session, turning sign-in failures into an RPC-style error. */
-export async function withSession<T>(
-  call: () => PromiseLike<{ data: T; error: { message: string } | null }>,
-): Promise<{ data: T | null; error: { message: string } | null }> {
+export async function withSession<R>(
+  call: () => PromiseLike<R>,
+): Promise<R | { data: null; error: { message: string } }> {
   try {
     await ensureSession()
   } catch (e) {
