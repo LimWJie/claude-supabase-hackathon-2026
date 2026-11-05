@@ -48,9 +48,9 @@ export default function GameScene({
   }
 
   return (
-    <Canvas dpr={[1, 2]} camera={{ fov: 50, position: [0, -3, 16] }}>
+    <Canvas dpr={[1, 2]} camera={{ fov: 50, position: [0, -2, 22] }}>
       <color attach="background" args={['#070814']} />
-      <fog attach="fog" args={['#070814', 18, 40]} />
+      <fog attach="fog" args={['#070814', 24, 50]} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[4, -6, 10]} intensity={1.2} />
       <pointLight position={[-8, 6, 6]} intensity={60} color="#7c3aed" />

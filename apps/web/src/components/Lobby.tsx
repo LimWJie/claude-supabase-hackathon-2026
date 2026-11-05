@@ -43,8 +43,10 @@ export function Lobby({ onEnter }: { onEnter: (matchId: string) => void }) {
       <Scene mode="idle" />
       <div className="hud center">
         <section className="panel lobby">
+          <span className="title-bomb" aria-hidden="true">
+            💣
+          </span>
           <h1 className="title">
-            <span className="title-bomb">💣</span>
             Mystery
             <br />
             Number

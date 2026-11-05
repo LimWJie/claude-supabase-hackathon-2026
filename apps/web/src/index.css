@@ -109,6 +109,7 @@ body,
 
 .lobby {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
 }
 
@@ -124,11 +125,11 @@ body,
 }
 
 .title-bomb {
-  display: block;
+  justify-self: center;
   font-size: 2.6rem;
-  margin-bottom: 0.25rem;
+  line-height: 1;
+  margin-bottom: -0.5rem;
   animation: wiggle 1.6s ease-in-out infinite;
-  -webkit-text-fill-color: initial;
 }
 
 .tagline {
@@ -274,6 +275,7 @@ input:focus {
 
 .code-input {
   flex: 1;
+  width: 100%;
   font: 1.25rem var(--display);
   letter-spacing: 0.3em;
   text-align: center;
