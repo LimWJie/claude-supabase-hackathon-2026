@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { supabase } from '../lib/supabase.ts'
+import { withSession } from '../lib/auth.ts'
 import { sfx } from '../lib/sfx.ts'
 import { Scene } from '../scene/LazyScene.tsx'
 
@@ -14,7 +15,7 @@ export function Lobby({ onEnter }: { onEnter: (matchId: string) => void }) {
     sfx.click()
     setBusy(true)
     setError(null)
-    const { data, error } = await supabase.rpc('create_match')
+    const { data, error } = await withSession(() => supabase.rpc('create_match'))
     setBusy(false)
     if (error) {
       sfx.error()
@@ -28,7 +29,7 @@ export function Lobby({ onEnter }: { onEnter: (matchId: string) => void }) {
     sfx.click()
     setBusy(true)
     setError(null)
-    const { data, error } = await supabase.rpc('join_match', { match_code: code })
+    const { data, error } = await withSession(() => supabase.rpc('join_match', { match_code: code }))
     setBusy(false)
     if (error) {
       sfx.error()
